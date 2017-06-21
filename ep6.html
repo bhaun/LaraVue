@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EP 6</title>
+</head>
+<body>
+
+<div id="root">
+    <h2>All Tasks</h2>
+    <ul>
+        <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <input id="newTask"/><button @click="addTask" v-text="addTaskText"></button>
+
+    <h2>Completed Tasks</h2>
+    <ul>
+        <li v-for="task in completedTasks">
+            <a @click="toggleCompletion(task)" v-text="task.description"></a>
+        </li>
+    </ul>
+
+    <h2>Incomplete Tasks</h2>
+    <ul>
+        <li v-for="task in incompleteTasks">
+            <a @click="toggleCompletion(task)" v-text="task.description"></a>
+        </li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#root',
+        data: {
+            message: 'Hello World',
+            tasks: [
+                {description: 'Go to the store', completed: false},
+                {description: 'Clean the house1', completed: true},
+                {description: 'Clean the house2', completed: true},
+                {description: 'wash the car', completed: true},
+                {description: 'tickle me elmo1', completed: false},
+                {description: 'tickle me elmo2', completed: false},
+                {description: 'tickle me elmo3', completed: false},
+                {description: 'tickle me elmo4', completed: false},
+            ],
+            addTaskText: 'Add Task'
+        },
+
+        computed: {
+            reversedMessage: function () {
+                return this.message.split('').reverse().join('');
+            },
+
+            completedTasks: function () {
+                return this.tasks.filter(function (task) {
+                    return task.completed;
+                });
+            },
+
+            incompleteTasks: function () {
+                return this.tasks.filter(function (task) {
+                    return !task.completed;
+                });
+            },
+        },
+
+        methods: {
+            toggleCompletion: function (task) {
+                task.completed = !task.completed;
+            },
+            addTask: function () {
+                debugger;
+                this.tasks.push({description: this.newTask, completed: false});
+            }
+        },
+
+        mounted: function () {
+        },
+
+    });
+</script>
+</body>
+</html>

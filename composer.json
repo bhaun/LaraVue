@@ -1,0 +1,15 @@
+{
+  "name": "LaraVue/Package1",
+  "description": "My Laravue project",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Blaine Haun",
+      "email": "Blaine.Haun@clearlink.com"
+    }
+  ],
+  "require": {
+    "laravel/framework": "v5.2.0"
+  }
+}

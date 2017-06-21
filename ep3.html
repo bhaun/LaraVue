@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="root">
+    <ul>
+        <li v-for="name in names">{{name}}</li>
+    </ul>
+    <input id="add" v-model="newName" @keyup="inputUp"/>
+    <button @click="addName">Submit</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#root',
+        data: {
+            message: 'blah',
+            names: ['blaine', 'keke', 'april', 'Brutus'],
+        },
+
+        methods: {
+            submit: function () {
+                this.addName(this.newName);
+            },
+            addName: function(value) {
+                this.names.push(this.newName);
+                this.newName = '';
+            },
+            inputUp: function() {
+                this.addName(this.newName);
+            },
+
+        },
+
+        mounted: function() {
+            alert('ready');
+        },
+
+    });
+</script>
+</body>
+</html>
