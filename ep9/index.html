@@ -2,24 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>EP 9</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <style>body {
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }</style>
 </head>
 <body>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>EP 7</title>
-</head>
-<body>
-
-
-
 <div id="root">
-    <task-list></task-list>
+    <message title="Hello World" body="Lorem Ipsum"></message>
+    <message title="Hello Universr" body="BLAH VLAHG BLAH"></message>
+    <modal v-show="showModal" @close="showModal = ! showModal" body="This is a test"></modal>
+    <button @click="showModal = true">SHOW MODAL</button>
+    <tabs>
+        <tab name="Pictures" :selected="true">
+            <h1>Here are my pictures.</h1>
+        </tab>
+
+        <tab name="Music">
+            <h1>Here are my Music.</h1>
+        </tab>
+
+        <tab name="Videos">
+            <h1>Here are my Videos.</h1>
+        </tab>
+
+        <tab name="Documents">
+            <h1>Here are my documents.</h1>
+        </tab>
+    </tabs>
 </div>
+
 
 <script src="../js/vue.js"></script>
 <script src="main.js"></script>
